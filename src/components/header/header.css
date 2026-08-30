@@ -1,0 +1,232 @@
+/* ===== Top Header ===== */
+.top-header {
+    width: 100%;
+    padding: 1rem 7rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white-color);
+}
+
+/* Logo */
+.top-header img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ===== Search Box ===== */
+.search-box {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    background: var(--bg-color);
+    border-radius: 30px;
+    border: 1px solid var(--main-color);
+}
+
+.search-box input {
+    height: 45px;
+    width: 440px;
+    padding: 5px 15px 5px 20px;
+    background: var(--bg-color);
+    border-radius: 30px 0 0 30px;
+}
+
+.search-box input::placeholder {
+    color: var(--p-color);
+    font-size: 0.8rem;
+}
+
+.search-box button {
+    height: 45px;
+    width: 60px;
+    background: var(--main-color);
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 0 30px 30px 0;
+}
+
+.search-box button svg {
+    fill: var(--white-color);
+}
+
+/* ===== Icons Box ===== */
+.icons-box {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.icons-box .icon {
+    position: relative;
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.icons-box .icon:hover {
+    color: var(--main-color);
+}
+
+.icons-box .icon .count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--main-color);
+    color: var(--white-color);
+    font-size: 0.6rem;
+    font-weight: 600;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+
+/* ===== Bottom Header ===== */
+
+
+.btm-header {
+    width: 100%;
+    background-color: var(--main-color);
+}
+
+.btm-header nav {
+    display: flex;
+    align-items: stretch;
+    position: relative;
+}
+
+/* Browse Category Button */
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.2rem;
+    color: var(--white-color);
+    font-size: 0.92rem;
+    font-weight: 600;
+    background-color: var(--main-color);
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    min-width: 190px;
+}
+
+.nav-btn svg {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    color: var(--white-color);
+}
+
+.nav-btn span {
+    color: var(--white-color);
+    flex: 1;
+}
+
+/* ===== Category Dropdown ===== */
+.category-list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 210px;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    box-shadow: 4px 8px 20px rgba(0, 0, 0, 0.12);
+    z-index: 999;
+    border-radius: 0 0 6px 6px;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: all 0.3s ease;
+}
+
+.category-list.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Scrollbar styling */
+.category-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.category-list::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+.category-list::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 4px;
+}
+
+
+
+.category-list a {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.87rem;
+    color: var(--heading-color);
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.18s, color 0.18s, padding-left 0.18s;
+    white-space: nowrap;
+}
+
+.category-list a:last-child {
+    border-bottom: none;
+}
+
+.category-list a:hover {
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    padding-left: 1.5rem;
+}
+
+/* ===== Nav Pages ===== */
+.header-pages {
+    display: flex;
+    align-items: stretch;
+    flex: 1;
+}
+
+.header-pages a {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.2rem;
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--white-color);
+    transition: background-color 0.2s ease;
+}
+
+.header-pages a:hover,
+.header-pages a.active {
+    background-color: #0079ca;
+}
+
+/* ===== Login / Register Icons ===== */
+.login-register {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+    padding: 0 1rem;
+}
+
+.login-register svg {
+    font-size: 1.5rem;
+    color: var(--white-color);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.login-register svg:hover {
+    opacity: 0.75;
+}

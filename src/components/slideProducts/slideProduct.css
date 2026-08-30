@@ -1,0 +1,116 @@
+ .slide-products {
+     padding: 50px 0;
+ }
+
+ .top-slide {
+     position: relative;
+     margin-bottom: 20px;
+     border-bottom: 1px solid var(--border-color);
+     padding: 15px 20px 20px 0;
+ }
+
+ .top-slide::after {
+     content: '';
+     position: absolute;
+     bottom: -1px;
+     width: 100px;
+     height: 2px;
+     background: var(--main-color);
+ }
+
+ .top-slide h2 {
+     font-size: 30px;
+     color: var(--main-color);
+     margin-bottom: 10px;
+     text-transform: capitalize;
+ }
+
+
+
+ /* product */
+
+
+ .product {
+     width: 250px;
+     background: var(--white-color);
+     padding: 25px 15px;
+     border: 1px solid var(--border-color);
+     transition: 0.3s;
+     border-radius: 5px;
+     position: relative;
+     overflow: hidden;
+ }
+
+ .product:hover {
+     border-color: var(--main-color);
+     box-shadow: 10px 10px 15px #94949429;
+ }
+
+ .product .img-product {
+     position: relative;
+     height: 180px;
+     padding: 0 20px;
+
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-bottom: 30px;
+ }
+
+ .product .img-product img {
+     height: 160px;
+     width: auto;
+ }
+
+ .product .name-product {
+     margin-bottom: 10px;
+     color: var(--color-heading);
+     overflow: hidden;
+     text-overflow: ellipsis;
+     display: -webkit-box;
+     -webkit-line-clamp: 1;
+     line-clamp: 1;
+     -webkit-box-orient: vertical;
+ }
+
+ .product .stars {
+     margin: 15px 0;
+     display: flex;
+     gap: 5px;
+ }
+
+ .product .stars svg {
+     fill: #f8d941;
+     font-size: 18px;
+ }
+
+ .product .price {
+     font-weight: bold;
+     font-size: 20px;
+ }
+
+ .product .icons {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     display: flex;
+     flex-direction: column;
+     right: -50px;
+     gap: 10px;
+     transition: 0.3s;
+ }
+
+ .product:hover .icons {
+     right: 20px;
+ }
+
+ .product .icons span {
+     width: 40px;
+     height: 40px;
+     background: var(--bg-color);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 100%;
+     cursor: pointer;
+ }

@@ -7,6 +7,7 @@
     --white-color: #fff;
     --heading-color: #253237;
     --border-color: #d6d6d6d5;
+    --header-height: 145px;
 }
 
 * {
@@ -18,6 +19,16 @@
 body {
     background-color: #fff;
     font-family: "Inter", sans-serif;
+    padding-top: var(--header-height);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
 img {

@@ -1,16 +1,20 @@
 import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
 import { FaCartArrowDown, FaRegHeart, FaShare } from "react-icons/fa";
 
-function Product() {
+function Product({ product }) {
+
+  console.log(product);
+
+
   return (
     <div>
       <div className='product'>
 
         <div className="img-product">
-          <img src="https://cdn.dummyjson.com/product-images/laptops/asus-zenbook-pro-dual-screen-laptop/1.webp" alt="" />
+          <img src={product.images[0]} alt={product.title} />
         </div>
 
-        <p className="name-product">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Blanditiis possimus tempore nihil ut corrupti veniam architecto consectetur omnis enim perspiciatis quia velit, recusandae reiciendis, debitis culpa? A corporis deleniti enim!</p>
+        <p className="name-product">{product.title}</p>
 
         <div className="stars">
             <FaStar />
@@ -20,7 +24,7 @@ function Product() {
             <FaRegStarHalfStroke />
         </div>
 
-        <p className='price'><span>$ 1000</span></p>
+        <p className='price'><span>$ {product.price}</span></p>
 
         <div className="icons">
           <span><FaCartArrowDown /></span>

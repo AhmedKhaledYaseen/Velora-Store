@@ -11,14 +11,14 @@ import 'swiper/css/navigation';
 // import required modules
 import { Autoplay, Navigation } from 'swiper/modules';
 
-function SlideProduct() {
+function SlideProduct(props) {
     return (
         <div>
             <div className='slide-products slide'>
                 <div className="container">
                     <div className="top-slide">
-                        <h2>Lorem ipsum dolor sit amet.</h2>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, voluptates?</p>
+                        <h2>{props.title}</h2>
+                        <p>Add best selling products to weekly lineup</p>
                     </div>
 
                     <Swiper
@@ -33,24 +33,9 @@ function SlideProduct() {
                         modules={[Autoplay,Navigation]}
                         className="mySwiper"
                     >
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
-                        <SwiperSlide><Product /></SwiperSlide>
+                        {props.data.map((product) => (
+                            <SwiperSlide key={product.id}><Product key={product.id} product={product} /></SwiperSlide>
+                        ))}
                     </Swiper>
                 </div>
             </div>

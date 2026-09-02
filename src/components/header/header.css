@@ -61,7 +61,7 @@
 
 .icons-box .icon {
     position: relative;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     color: var(--heading-color);
     cursor: pointer;
     transition: color 0.2s ease;

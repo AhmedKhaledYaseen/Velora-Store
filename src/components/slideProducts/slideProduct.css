@@ -105,12 +105,31 @@
  }
 
  .product .icons span {
-     width: 40px;
-     height: 40px;
-     background: var(--bg-color);
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     border-radius: 100%;
-     cursor: pointer;
- }
+    width: 40px;
+    height: 40px;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.product .icons span svg {
+    font-size: 17px;
+    color: var(--heading-color);
+    fill: var(--main-color);
+    transition: color 0.3s ease, fill 0.3s ease;
+}
+
+.product .icons span:hover {
+    background: var(--main-color);
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 144, 240, 0.3);
+}
+
+.product .icons span:hover svg {
+    color: var(--white-color);
+    fill: var(--white-color);
+}

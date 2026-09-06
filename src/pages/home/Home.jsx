@@ -2,6 +2,7 @@ import HeroSlider from "../../components/HeroSlider"
 import './home.css'
 import SlideProduct from "../../components/slideProducts/SlideProduct"
 import { useEffect, useState } from "react";
+import { FadeLoader } from "react-spinners";
 
 function Home() {
 
@@ -49,11 +50,15 @@ function Home() {
     <>
       <HeroSlider />
       {isLoading ? (
-        <p>Loading ....</p>
+        categories.map(category => (
+          <div className="loading_slider">
+            <FadeLoader key={category} color="var(--main-color)" />
+          </div>
+        ))
       ) : (
         categories.map(category => (
-          <SlideProduct key={category} data={products[category]} title={category.replace('-', ' ')} />
-          ))
+          <SlideProduct key={category}  data={products[category]} title={category.replace('-', ' ')} />
+        ))
       )}
     </>
   )

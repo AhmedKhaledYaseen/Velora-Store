@@ -5,6 +5,7 @@ import { FaRegHeart, FaShare, FaStar } from "react-icons/fa";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
 import SlideProduct from "../../components/slideProducts/SlideProduct";
+import { FadeLoader } from "react-spinners";
 
 function ProductDetails() {
     const { id } = useParams();
@@ -44,7 +45,11 @@ function ProductDetails() {
     }, [product?.category])
 
 
-    if (isLoading) return <div>Loading...</div>
+    if (isLoading) return (
+        <div className="loader">
+            <FadeLoader color="var(--main-color)" />
+        </div>
+    )
     if (!product) return <div>Product not found</div>
 
     return (
@@ -115,7 +120,12 @@ function ProductDetails() {
                 </div>
             </div>
 
-            {relLoading ? <div>Loading...</div> : <SlideProduct key={product.category} data={relProduct} title={product.category.replace("-", " ")} />}
+            {relLoading ? 
+                <div className="loading_slider">
+                    <FadeLoader color="var(--main-color)" />
+                </div> : 
+                <SlideProduct key={product.category} data={relProduct} title={product.category.replace("-", " ")} />
+            }
         </>
     )
 }

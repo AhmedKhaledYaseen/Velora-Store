@@ -57,3 +57,16 @@
     margin-top: 2.5vw;
     margin-bottom: 2.5vw;
 }
+
+.loading_slider {
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.loading_slider > span {
+    transform: scale(1.8);
+}

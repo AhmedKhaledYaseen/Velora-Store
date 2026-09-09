@@ -133,3 +133,33 @@
     color: var(--white-color);
     fill: var(--white-color);
 }
+
+.product.in-cart .icons .btn-addtocart {
+    background: var(--main-color);
+    pointer-events: none;
+}
+
+.product.in-cart .icons .btn-addtocart svg {
+    fill: var(--white-color);
+}
+
+.product .status-cart {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #253237;
+}
+
+.product.in-cart .status-cart {
+    top: 10px;
+}
+
+.product .status-cart svg {
+    color: rgb(44, 252, 3);
+}

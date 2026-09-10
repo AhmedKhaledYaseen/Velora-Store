@@ -5,13 +5,15 @@ import { useContext } from "react";
 import { CartContext } from "../cartContext/CartContext";
 import toast from "react-hot-toast";
 
-function Product({ product }) {
-
+function Product({ product: propProduct, item }) {
+  const product = propProduct || item;
   const { cartItems, addToCart } = useContext(CartContext);
 
   const navigate = useNavigate();
 
-  const isInCart = cartItems.some((item) => item.id === product.id);
+  if (!product) return null;
+
+  const isInCart = cartItems?.some((item) => item.id === product.id);
 
   const handleAddToCart = () => {
     addToCart(product);

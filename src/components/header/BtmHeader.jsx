@@ -48,7 +48,7 @@ function BtmHeader() {
 
           <div className={`category-list ${isOpen ? "active" : ""}`}>
             {categories.map((category, idx) => (
-              <Link to={category.slug} key={idx}>{category.name}</Link>
+              <Link to={`/category/${category.slug}`} key={idx}>{category.name}</Link>
             ))}
           </div>
 

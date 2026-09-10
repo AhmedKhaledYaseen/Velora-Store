@@ -5,11 +5,9 @@ import './cart.css'
 
 function Cart() {
 
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, increaseQuantity, decreaseQuantity, deleteCartItem } = useContext(CartContext);
 
-  const total = cartItems.reduce((acc, item) => acc + item.price, 0);
-
-  console.log(cartItems);
+  const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
 
   return (
@@ -33,14 +31,14 @@ function Cart() {
                     <p className='price_item'>${item.price}</p>
 
                     <div className="quantity_control">
-                      <button>-</button>
-                      <span className='quantity'>1</span>
-                      <button>+</button>
+                      <button onClick={() => decreaseQuantity(item.id)}>-</button>
+                      <span className='quantity'>{item.quantity}</span>
+                      <button onClick={() => increaseQuantity(item.id)}>+</button>
                     </div>
                   </div>
 
                 </div>
-                <button className='delete_item'><FaTrashAlt /></button>
+                <button className='delete_item' onClick={() => deleteCartItem(item.id)}><FaTrashAlt /></button>
               </div>
             ))
           )}

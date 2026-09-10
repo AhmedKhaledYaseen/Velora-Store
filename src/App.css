@@ -86,3 +86,41 @@ ul {
 .btn:hover {
     scale: 1.1;
 }
+
+/* Toast */
+
+
+.toast-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.toast-img {
+    width: auto;
+    height: 50px;
+    object-fit: cover;
+}
+
+.toast-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.toast-wrapper strong {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.toast-content .btn {
+    margin-top: 5px;
+    font-size: 13px;
+}

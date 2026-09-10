@@ -1,14 +1,35 @@
 import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
 import { FaCartArrowDown, FaRegHeart, FaShare, FaCheck } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../cartContext/CartContext";
+import toast from "react-hot-toast";
 
 function Product({ product }) {
 
   const { cartItems, addToCart } = useContext(CartContext);
 
+  const navigate = useNavigate();
+
   const isInCart = cartItems.some((item) => item.id === product.id);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    toast.success(
+      <div className='toast-wrapper'>
+        <img src={product.images[0]} alt="" className='toast-img' />
+
+        <div className="toast-content">
+          <strong>{product.title}</strong>
+          added to Cart
+          <div>
+            <button className='btn' onClick={() => navigate('/cart')}> View Cart</button>
+          </div>
+        </div>
+      </div>
+      , { duration: 3500 }
+    );
+  };
 
   return (
     <div>
@@ -35,7 +56,7 @@ function Product({ product }) {
         </Link>
 
         <div className="icons">
-          <span className="btn-addtocart" title="Add to Cart" onClick={() => addToCart(product)}><FaCartArrowDown /></span>
+          <span className="btn-addtocart" title="Add to Cart" onClick={handleAddToCart}><FaCartArrowDown /></span>
           <span title="Add to Wishlist"><FaRegHeart /></span>
           <span title="Share"><FaShare /></span>
         </div>

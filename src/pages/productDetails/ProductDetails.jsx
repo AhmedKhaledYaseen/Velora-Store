@@ -1,14 +1,20 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import './productDetails.css'
 import { FaRegHeart, FaShare, FaStar } from "react-icons/fa";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
 import SlideProduct from "../../components/slideProducts/SlideProduct";
 import { FadeLoader } from "react-spinners";
+import { useContext } from "react";
+import { CartContext } from "../../components/cartContext/CartContext";
+import toast from "react-hot-toast";
 
 function ProductDetails() {
     const { id } = useParams();
+    const { addToCart, cartItems } = useContext(CartContext);
+
+    const navigate = useNavigate();
 
     const [product, setProduct] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -43,6 +49,24 @@ function ProductDetails() {
         }
         dataFetching();
     }, [product?.category])
+
+    const handleAddToCart = () => {
+        addToCart(product);
+        toast.success(
+            <div className='toast-wrapper'>
+                <img src={product.images[0]} alt="" className='toast-img' />
+
+                <div className="toast-content">
+                    <strong>{product.title}</strong>
+                    added to Cart
+                    <div>
+                        <button className='btn' onClick={() => navigate('/cart')}> View Cart</button>
+                    </div>
+                </div>
+            </div>
+            , { duration: 3500 }
+        );
+    };
 
 
     if (isLoading) return (
@@ -99,8 +123,8 @@ function ProductDetails() {
                         <span>Hurry Up! Only {product.stock} products left in stock.</span>{" "}
                     </h5>
 
-                    <button className="btn">
-                        Add To Cart
+                        <button className={`btn ${cartItems.find(item => item.id === product.id) ? "in-cart" : ""}`} onClick={handleAddToCart}>
+                        {cartItems.find(item => item.id === product.id) ? "Item In Cart" : "Add To Cart"}
                         <TiShoppingCart />
                     </button>
 

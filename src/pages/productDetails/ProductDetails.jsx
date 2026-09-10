@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import './productDetails.css'
-import { FaRegHeart, FaShare, FaStar } from "react-icons/fa";
-import { FaRegStarHalfStroke } from "react-icons/fa6";
-import { TiShoppingCart } from "react-icons/ti";
 import SlideProduct from "../../components/slideProducts/SlideProduct";
 import { FadeLoader } from "react-spinners";
 import { useContext } from "react";
 import { CartContext } from "../../components/cartContext/CartContext";
 import toast from "react-hot-toast";
+import ProductImages from "./ProductImages";
+import ProductInfo from "./ProductInfo";
+import PageTransition from "../../components/PageTransition";
 
 function ProductDetails() {
     const { id } = useParams();
@@ -77,80 +77,28 @@ function ProductDetails() {
     if (!product) return <div>Product not found</div>
 
     return (
-        <>
-            <div className="item_details">
-                <div className="container">
+        <PageTransition>
+            {isLoading ?
+                <div className="loader">
+                    <FadeLoader color="var(--main-color)" />
+                </div> :
+                <div className="item_details">
+                    <div className="container">
 
-                <div className="imgs_item">
-                    <div className="big_img">
-                        <img id="big_img" src={product.images[0]} alt={product.title} />
-                    </div>
-
-                    <div className="sm_img">
-                        {product.images.map((img, index) => (
-                            <div className="img_div_sm" key={index}>
-                                <img
-                                    src={img}
-                                    alt={product.title}
-                                    onClick={() => (document.getElementById("big_img").src = img)}
-                                />
-                            </div>
-                        ))}
+                        <ProductImages product={product} />
+                        <ProductInfo product={product} handleAddToCart={handleAddToCart} cartItems={cartItems} />
                     </div>
                 </div>
+            }
 
 
-                <div className="details_item">
-                    <h1 className="name">{product.title}</h1>
-                    <div className="stars">
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaStar />
-                        <FaRegStarHalfStroke />
-                    </div>
-
-                    <p className="price">$ {product.price}</p>
-
-                    <h5>
-                        Availability: <span>{product.availabilityStatus}</span>
-                    </h5>
-                    <h5>
-                        Brand: <span>{product.brand}</span>
-                    </h5>
-                    <p className="desc">{product.description}</p>
-                    <h5 className="stock">
-                        <span>Hurry Up! Only {product.stock} products left in stock.</span>{" "}
-                    </h5>
-
-                        <button className={`btn ${cartItems.find(item => item.id === product.id) ? "in-cart" : ""}`} onClick={handleAddToCart}>
-                        {cartItems.find(item => item.id === product.id) ? "Item In Cart" : "Add To Cart"}
-                        <TiShoppingCart />
-                    </button>
-
-                    <div className="icons">
-                        <span>
-                            <FaRegHeart />
-                        </span>
-                        <span>
-                            <FaShare />
-                        </span>
-                    </div>
-                </div>
-                        
-                
-                
-
-                </div>
-            </div>
-
-            {relLoading ? 
+            {relLoading ?
                 <div className="loading_slider">
                     <FadeLoader color="var(--main-color)" />
-                </div> : 
+                </div> :
                 <SlideProduct key={product.category} data={relProduct} title={product.category.replace("-", " ")} />
             }
-        </>
+        </PageTransition>
     )
 }
 

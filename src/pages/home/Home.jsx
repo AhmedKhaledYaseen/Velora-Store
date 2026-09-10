@@ -3,6 +3,7 @@ import './home.css'
 import SlideProduct from "../../components/slideProducts/SlideProduct"
 import { useEffect, useState } from "react";
 import { FadeLoader } from "react-spinners";
+import PageTransition from "../../components/PageTransition";
 
 function Home() {
 
@@ -47,20 +48,20 @@ function Home() {
   }, []);
 
   return (
-    <>
-      <HeroSlider />
-      {isLoading ? (
-        categories.map(category => (
-          <div className="loading_slider">
-            <FadeLoader key={category} color="var(--main-color)" />
-          </div>
-        ))
-      ) : (
-        categories.map(category => (
-          <SlideProduct key={category}  data={products[category]} title={category.replace('-', ' ')} />
-        ))
-      )}
-    </>
+      <PageTransition>
+        <HeroSlider />
+        {isLoading ? (
+          categories.map(category => (
+            <div className="loading_slider">
+              <FadeLoader key={category} color="var(--main-color)" />
+            </div>
+          ))
+        ) : (
+          categories.map(category => (
+            <SlideProduct key={category} data={products[category]} title={category.replace('-', ' ')} />
+          ))
+        )}
+      </PageTransition>
   )
 }
 

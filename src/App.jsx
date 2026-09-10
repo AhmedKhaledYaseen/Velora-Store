@@ -6,6 +6,8 @@ import { Route, Routes } from 'react-router-dom'
 import ProductDetails from './pages/productDetails/ProductDetails'
 import Cart from './pages/cart/Cart'
 import { Toaster } from 'react-hot-toast'
+import ScrollToTop from './components/ScrollToTop'
+import { AnimatePresence } from 'framer-motion'
 
 function App() {
   return (
@@ -27,11 +29,15 @@ function App() {
         }}
       />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/product/:id" element={<ProductDetails />} />
-      </Routes>
+      <ScrollToTop />
+
+      <AnimatePresence mode="wait">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Routes>
+      </AnimatePresence>
     </>
   )
 }

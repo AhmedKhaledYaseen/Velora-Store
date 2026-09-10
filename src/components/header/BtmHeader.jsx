@@ -25,6 +25,11 @@ function BtmHeader() {
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsOpen(false);
+  }, [location])
+
+  useEffect(() => {
     fetch('https://dummyjson.com/products/categories')
       .then((res) => res.json())
       .then((data) => setCategories(data))

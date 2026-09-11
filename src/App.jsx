@@ -9,6 +9,7 @@ import { Toaster } from 'react-hot-toast'
 import ScrollToTop from './components/ScrollToTop'
 import { AnimatePresence } from 'framer-motion'
 import CategoryProducts from './pages/category/CategoryProducts'
+import SearchResults from './pages/SearchResults'
 
 function App() {
   const location = useLocation()
@@ -38,6 +39,7 @@ function App() {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/search" element={<SearchResults />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/category/:category" element={<CategoryProducts />} />
         </Routes>

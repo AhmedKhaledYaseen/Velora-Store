@@ -4,6 +4,7 @@ import { TiShoppingCart } from "react-icons/ti";
 import './header.css'
 import { useContext } from "react";
 import { CartContext } from "../cartContext/CartContext";
+import { FavoritesContext } from "../favoritesContext/FavoritesContext";
 import SearchBox from "./SearchBox";
 
 
@@ -12,6 +13,7 @@ import SearchBox from "./SearchBox";
 function TopHeader() {
 
   const { cartItems } = useContext(CartContext);
+  const { favorites } = useContext(FavoritesContext);
 
   return (
     <div className="top-header">
@@ -22,10 +24,12 @@ function TopHeader() {
       <SearchBox />
 
       <div className="icons-box">
-        <div className="icon">
-          <FaRegHeart />
-          <span className="count">0</span>
-        </div>
+        <Link to="/favorites">
+          <div className="icon">
+            <FaRegHeart />
+            <span className="count">{favorites.length}</span>
+          </div>
+        </Link>
 
         <Link to="/cart">
           <div className="icon">

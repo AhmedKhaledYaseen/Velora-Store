@@ -1,8 +1,12 @@
-import { FaRegHeart, FaShare, FaStar } from "react-icons/fa";
+import { FaRegHeart, FaHeart, FaShare, FaStar } from "react-icons/fa";
 import { FaRegStarHalfStroke } from "react-icons/fa6";
 import { TiShoppingCart } from "react-icons/ti";
+import { useContext } from "react";
+import { FavoritesContext } from "../../components/favoritesContext/FavoritesContext";
 
 function ProductInfo({ product, handleAddToCart, cartItems }) {
+    const { isFavorite, toggleFavorite } = useContext(FavoritesContext);
+    const isFav = isFavorite(product.id);
     return (
         <div className="details_item">
             <h1 className="name">{product.title}</h1>
@@ -33,8 +37,12 @@ function ProductInfo({ product, handleAddToCart, cartItems }) {
             </button>
 
             <div className="icons">
-                <span>
-                    <FaRegHeart />
+                <span 
+                    className={isFav ? "in-fav" : ""} 
+                    onClick={() => toggleFavorite(product)}
+                    title={isFav ? "Remove from Favorites" : "Add to Favorites"}
+                >
+                    {isFav ? <FaHeart /> : <FaRegHeart />}
                 </span>
                 <span>
                     <FaShare />

@@ -1,0 +1,120 @@
+.about_page {
+    padding: 40px 0 80px;
+    min-height: 60vh;
+}
+
+.about_story {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    margin: 50px 0;
+    align-items: center;
+}
+
+.about_story_text h3 {
+    font-size: 26px;
+    color: var(--heading-color);
+    margin-bottom: 18px;
+    line-height: 1.4;
+}
+
+.about_story_text p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--p-color);
+    margin-bottom: 16px;
+}
+
+.about_stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.stat_card {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat_card:hover {
+    transform: translateY(-5px);
+    border-color: var(--main-color);
+    box-shadow: 0 8px 20px rgba(0, 144, 240, 0.12);
+}
+
+.stat_card h4 {
+    font-size: 32px;
+    color: var(--main-color);
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.stat_card p {
+    font-size: 14px;
+    color: var(--p-color);
+    font-weight: 500;
+}
+
+/* Features Grid */
+.about_features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-top: 60px;
+}
+
+.feature_box {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px 22px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature_box:hover {
+    border-color: var(--main-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
+}
+
+.feature_box .feature_icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(0, 144, 240, 0.1);
+    color: var(--main-color);
+    font-size: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    transition: all 0.3s ease;
+}
+
+.feature_box:hover .feature_icon {
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+.feature_box h4 {
+    font-size: 18px;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.feature_box p {
+    font-size: 14px;
+    color: var(--p-color);
+    line-height: 1.6;
+}
+
+@media (max-width: 868px) {
+    .about_story {
+        grid-template-columns: 1fr;
+    }
+}

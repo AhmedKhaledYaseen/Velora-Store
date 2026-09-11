@@ -1,0 +1,216 @@
+.blog_page {
+    padding: 40px 0 80px;
+    min-height: 60vh;
+}
+
+.blog_filters {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.blog_filters button {
+    padding: 8px 22px;
+    border-radius: 25px;
+    background: var(--bg-color);
+    color: var(--heading-color);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.blog_filters button:hover {
+    border-color: var(--main-color);
+    color: var(--main-color);
+}
+
+.blog_filters button.active {
+    background: var(--main-color);
+    color: var(--white-color);
+    border-color: var(--main-color);
+}
+
+/* Blog Grid */
+.blog_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.blog_card {
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog_card:hover {
+    border-color: var(--main-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.blog_img_wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.blog_img_wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.blog_card:hover .blog_img_wrapper img {
+    transform: scale(1.05);
+}
+
+.blog_category_badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--main-color);
+    color: var(--white-color) !important;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.blog_content {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.blog_meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 13px;
+    color: var(--p-color);
+    margin-bottom: 12px;
+}
+
+.blog_meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.blog_content h3 {
+    font-size: 18px;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+    line-height: 1.4;
+    transition: color 0.2s ease;
+}
+
+.blog_card:hover .blog_content h3 {
+    color: var(--main-color);
+}
+
+.blog_content p {
+    font-size: 14px;
+    color: var(--p-color);
+    line-height: 1.6;
+    margin-bottom: 18px;
+    flex: 1;
+}
+
+.blog_btn {
+    align-self: flex-start;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background: transparent;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.blog_btn:hover {
+    background: var(--main-color);
+    color: var(--white-color);
+}
+
+/* Blog Article Modal */
+.blog_modal_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.blog_modal {
+    background: var(--white-color);
+    border-radius: 12px;
+    max-width: 650px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.blog_modal_close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--bg-color);
+    border: none;
+    font-size: 18px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--heading-color);
+}
+
+.blog_modal h2 {
+    font-size: 24px;
+    color: var(--heading-color);
+    margin: 15px 0;
+}
+
+.blog_modal img {
+    border-radius: 8px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.blog_modal p {
+    font-size: 15px;
+    color: var(--p-color);
+    line-height: 1.8;
+    margin-top: 15px;
+}

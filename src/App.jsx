@@ -10,6 +10,11 @@ import ScrollToTop from './components/ScrollToTop'
 import { AnimatePresence } from 'framer-motion'
 import CategoryProducts from './pages/category/CategoryProducts'
 import SearchResults from './pages/SearchResults'
+import Favorites from './pages/favorites/Favorites'
+import About from './pages/about/About'
+import Accessories from './pages/accessories/Accessories'
+import Blog from './pages/blog/Blog'
+import Contact from './pages/contact/Contact'
 
 function App() {
   const location = useLocation()
@@ -38,7 +43,12 @@ function App() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/accessories" element={<Accessories />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/favorites" element={<Favorites />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/category/:category" element={<CategoryProducts />} />

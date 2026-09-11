@@ -122,6 +122,7 @@
 
 .item_details .details_item .icons span.in-fav svg {
     fill: var(--white-color);
+    color: var(--white-color);
 }
 
 .item_details .details_item .btn svg {
@@ -151,6 +152,8 @@
 
 .item_details .details_item .icons span svg {
     transition: 0.3s;
+    fill: var(--main-color);
+    color: var(--main-color);
 }
 
 .item_details .details_item .icons span:hover {
@@ -159,6 +162,7 @@
 
 .item_details .details_item .icons span:hover svg {
     fill: var(--white-color);
+    color: var(--white-color);
 }
 
 

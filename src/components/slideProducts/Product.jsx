@@ -1,19 +1,22 @@
 import { FaStar, FaRegStarHalfStroke } from "react-icons/fa6";
-import { FaCartArrowDown, FaRegHeart, FaShare, FaCheck } from "react-icons/fa";
+import { FaCartArrowDown, FaRegHeart, FaHeart, FaShare, FaCheck } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../cartContext/CartContext";
+import { FavoritesContext } from "../favoritesContext/FavoritesContext";
 import toast from "react-hot-toast";
 
 function Product({ product: propProduct, item }) {
   const product = propProduct || item;
   const { cartItems, addToCart } = useContext(CartContext);
+  const { isFavorite, toggleFavorite } = useContext(FavoritesContext);
 
   const navigate = useNavigate();
 
   if (!product) return null;
 
   const isInCart = cartItems?.some((item) => item.id === product.id);
+  const isFav = isFavorite(product.id);
 
   const handleAddToCart = () => {
     addToCart(product);
@@ -59,7 +62,13 @@ function Product({ product: propProduct, item }) {
 
         <div className="icons">
           <span className="btn-addtocart" title="Add to Cart" onClick={handleAddToCart}><FaCartArrowDown /></span>
-          <span title="Add to Wishlist"><FaRegHeart /></span>
+          <span 
+            className={isFav ? "in-fav" : ""} 
+            title={isFav ? "Remove from Favorites" : "Add to Favorites"} 
+            onClick={() => toggleFavorite(product)}
+          >
+            {isFav ? <FaHeart /> : <FaRegHeart />}
+          </span>
           <span title="Share"><FaShare /></span>
         </div>
 

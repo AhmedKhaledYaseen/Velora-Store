@@ -143,6 +143,15 @@
     fill: var(--white-color);
 }
 
+.product .icons span.in-fav {
+    background: var(--main-color);
+}
+
+.product .icons span.in-fav svg {
+    color: var(--white-color);
+    fill: var(--white-color);
+}
+
 .product .status-cart {
     position: absolute;
     top: -30px;

@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import PageTransition from "../components/PageTransition";
 import Product from "../components/slideProducts/Product";
 import { FadeLoader } from "react-spinners";
+import "./category/categoryProducts.css";
 
 function SearchResults() {
   const [results, setResults] = useState([]);
@@ -29,6 +30,7 @@ function SearchResults() {
     if (query) {
       fetchResults();
     } else {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLoading(false);
     }
   }, [query]);

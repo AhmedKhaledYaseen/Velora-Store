@@ -43,6 +43,7 @@ function SearchBox() {
     }, [searchTerm]);
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setSuggestions([]);
     }, [location]);
 
@@ -83,4 +84,4 @@ function SearchBox() {
     );
 }
 
-export default SearchBox;
+export default SearchBox;

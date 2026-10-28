@@ -15,6 +15,9 @@ import About from './pages/about/About'
 import Accessories from './pages/accessories/Accessories'
 import Blog from './pages/blog/Blog'
 import Contact from './pages/contact/Contact'
+import Register from './pages/register/Register'
+import ForgotPassword from './pages/forgotPassword/ForgotPassword'
+import AuthModal from './components/authModal/AuthModal'
 
 function App() {
   const location = useLocation()
@@ -25,6 +28,9 @@ function App() {
         <TopHeader />
         <BtmHeader />
       </header>
+
+      {/* Global Authentication Modal */}
+      <AuthModal />
 
       <Toaster
         position="bottom-right"
@@ -52,6 +58,8 @@ function App() {
           <Route path="/search" element={<SearchResults />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/category/:category" element={<CategoryProducts />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </AnimatePresence>
     </>

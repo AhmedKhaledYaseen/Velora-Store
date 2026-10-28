@@ -211,24 +211,222 @@
     background-color: #0079ca;
 }
 
-/* ===== Login / Register Icons ===== */
+/* ===== Login / Register & Profile Section ===== */
 .login-register {
     display: flex;
     align-items: center;
-    gap: 1rem;
     margin-left: auto;
-    padding: 0 1rem;
+    position: relative;
+    padding: 0 0.5rem;
 }
 
-.login-register svg {
-    font-size: 1.5rem;
+.auth-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.header-auth-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
     color: var(--white-color);
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.login-register svg:hover {
-    opacity: 0.75;
+.header-auth-btn svg {
+    font-size: 1.15rem;
+    color: var(--white-color);
+}
+
+.header-auth-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--white-color);
+}
+
+.header-auth-btn.header-reg-btn {
+    background: var(--white-color);
+    color: var(--main-color);
+    border-color: var(--white-color);
+    font-weight: 600;
+}
+
+.header-auth-btn.header-reg-btn svg {
+    color: var(--main-color);
+}
+
+.header-auth-btn.header-reg-btn:hover {
+    background: #eef6fc;
+}
+
+/* User Profile Menu */
+.user-profile-menu {
+    position: relative;
+}
+
+.user-profile-trigger {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px 12px 4px 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: all 0.2s ease;
+}
+
+.user-profile-trigger:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.user-header-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid var(--white-color);
+}
+
+.user-header-name {
+    color: var(--white-color);
+    font-size: 0.88rem;
+    font-weight: 600;
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-profile-trigger svg {
+    color: var(--white-color);
+    font-size: 1.1rem;
+}
+
+/* Dropdown Menu */
+.user-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    width: 240px;
+    background: var(--white-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    padding: 0.6rem;
+    z-index: 1001;
+    display: none;
+    flex-direction: column;
+    animation: fadeInDropdown 0.2s ease;
+}
+
+.user-dropdown-menu.active {
+    display: flex;
+}
+
+@keyframes fadeInDropdown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.6rem 0.5rem;
+}
+
+.dropdown-user-info img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.dropdown-user-info .info-text {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dropdown-user-info .user-fullname {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-user-info .user-email {
+    font-size: 0.76rem;
+    color: var(--p-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 0.4rem 0;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.55rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.86rem;
+    color: var(--heading-color);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-decoration: none;
+    width: 100%;
+}
+
+.dropdown-item svg {
+    font-size: 1.05rem;
+    color: var(--p-color);
+    transition: color 0.15s ease;
+}
+
+.dropdown-item:hover {
+    background: var(--bg-color);
+    color: var(--main-color);
+}
+
+.dropdown-item:hover svg {
+    color: var(--main-color);
+}
+
+.dropdown-item.logout-item {
+    color: #c81e1e;
+}
+
+.dropdown-item.logout-item svg {
+    color: #c81e1e;
+}
+
+.dropdown-item.logout-item:hover {
+    background: #fde8e8;
+    color: #9b1c1c;
 }
 
 /* search */

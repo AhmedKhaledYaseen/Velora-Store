@@ -44,7 +44,7 @@ p {
     color: var(--p-color);
 }
 
-span:not(.nav-btn span) {
+span:not(.nav-btn span, .header-auth-btn span) {
     color: var(--main-color);
 }
 

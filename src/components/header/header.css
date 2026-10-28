@@ -231,7 +231,7 @@
     align-items: center;
     gap: 6px;
     background: transparent;
-    color: var(--white-color);
+    color: var(--white-color, #ffffff);
     font-size: 0.88rem;
     font-weight: 500;
     padding: 6px 12px;
@@ -241,21 +241,34 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.header-auth-btn span {
+    color: var(--white-color, #ffffff) !important;
+}
+
 .header-auth-btn svg {
     font-size: 1.15rem;
-    color: var(--white-color);
+    color: var(--white-color, #ffffff);
 }
 
 .header-auth-btn:hover {
     background: rgba(255, 255, 255, 0.15);
-    border-color: var(--white-color);
+    border-color: var(--white-color, #ffffff);
+    color: var(--white-color, #ffffff);
+}
+
+.header-auth-btn:hover span {
+    color: var(--white-color, #ffffff) !important;
 }
 
 .header-auth-btn.header-reg-btn {
-    background: var(--white-color);
+    background: var(--white-color, #ffffff);
     color: var(--main-color);
-    border-color: var(--white-color);
+    border-color: var(--white-color, #ffffff);
     font-weight: 600;
+}
+
+.header-auth-btn.header-reg-btn span {
+    color: var(--main-color) !important;
 }
 
 .header-auth-btn.header-reg-btn svg {

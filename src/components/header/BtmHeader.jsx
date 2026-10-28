@@ -139,7 +139,7 @@ function BtmHeader() {
                   title="Sign In"
                 >
                   <PiSignInFill />
-                  <span style={{ color: "var(--white-color)" }}>Sign In</span>
+                  <span>Sign In</span>
                 </button>
                 <Link
                   to="/register"

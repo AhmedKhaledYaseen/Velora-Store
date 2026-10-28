@@ -2,7 +2,7 @@ import TopHeader from './components/header/TopHeader'
 import BtmHeader from './components/header/BtmHeader'
 import './App.css'
 import Home from './pages/home/Home'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation, Navigate } from 'react-router-dom'
 import ProductDetails from './pages/productDetails/ProductDetails'
 import Cart from './pages/cart/Cart'
 import { Toaster } from 'react-hot-toast'
@@ -15,9 +15,8 @@ import About from './pages/about/About'
 import Accessories from './pages/accessories/Accessories'
 import Blog from './pages/blog/Blog'
 import Contact from './pages/contact/Contact'
-import Register from './pages/register/Register'
-import ForgotPassword from './pages/forgotPassword/ForgotPassword'
-import AuthModal from './components/authModal/AuthModal'
+import SignInPage from './pages/auth/SignInPage'
+import SignUpPage from './pages/auth/SignUpPage'
 
 function App() {
   const location = useLocation()
@@ -28,9 +27,6 @@ function App() {
         <TopHeader />
         <BtmHeader />
       </header>
-
-      {/* Global Authentication Modal */}
-      <AuthModal />
 
       <Toaster
         position="bottom-right"
@@ -58,8 +54,10 @@ function App() {
           <Route path="/search" element={<SearchResults />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/category/:category" element={<CategoryProducts />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/sign-in/*" element={<SignInPage />} />
+          <Route path="/sign-up/*" element={<SignUpPage />} />
+          <Route path="/register" element={<Navigate to="/sign-up" replace />} />
+          <Route path="/forgot-password" element={<Navigate to="/sign-in" replace />} />
         </Routes>
       </AnimatePresence>
     </>

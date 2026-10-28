@@ -5,13 +5,12 @@ import './header.css';
 import { useContext } from "react";
 import { CartContext } from "../cartContext/CartContext";
 import { FavoritesContext } from "../favoritesContext/FavoritesContext";
-import { AuthContext } from "../authContext/AuthContext";
+import { SignInButton, Show, UserButton } from "@clerk/react";
 import SearchBox from "./SearchBox";
 
 function TopHeader() {
   const { cartItems } = useContext(CartContext);
   const { favorites } = useContext(FavoritesContext);
-  const { user, isAuthenticated, openLoginModal } = useContext(AuthContext);
 
   return (
     <div className="top-header">
@@ -22,30 +21,22 @@ function TopHeader() {
       <SearchBox />
 
       <div className="icons-box">
-        {isAuthenticated && user ? (
-          <div className="icon user-top-icon" title={`Logged in as ${user.name}`}>
-            <img
-              src={user.avatar || `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(user.name)}`}
-              alt={user.name}
-              style={{
-                width: "28px",
-                height: "28px",
-                borderRadius: "50%",
-                objectFit: "cover",
-                border: "2px solid var(--main-color)",
-              }}
-            />
+        <Show when="signed-in">
+          <div className="icon clerk-user-icon">
+            <UserButton />
           </div>
-        ) : (
-          <div
-            className="icon"
-            onClick={openLoginModal}
-            title="Sign In / Register"
-            style={{ cursor: "pointer" }}
-          >
-            <FaRegUser />
-          </div>
-        )}
+        </Show>
+        <Show when="signed-out">
+          <SignInButton mode="modal">
+            <div
+              className="icon"
+              title="Sign In / Register"
+              style={{ cursor: "pointer" }}
+            >
+              <FaRegUser />
+            </div>
+          </SignInButton>
+        </Show>
 
         <Link to="/favorites">
           <div className="icon">

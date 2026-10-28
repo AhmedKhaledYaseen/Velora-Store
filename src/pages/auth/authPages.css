@@ -1,0 +1,9 @@
+.clerk-auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 220px);
+  padding: 3rem 1rem;
+  background-color: var(--bg-color, #f8f9fa);
+}
+

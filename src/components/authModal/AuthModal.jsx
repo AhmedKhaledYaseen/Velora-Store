@@ -85,12 +85,6 @@ export default function AuthModal() {
     navigate("/forgot-password");
   };
 
-  const fillDemoAccount = () => {
-    setEmail("demo@velora.com");
-    setPassword("password123");
-    setError("");
-  };
-
   return (
     <AnimatePresence>
       <div className="auth-modal-overlay" onClick={handleClose}>
@@ -176,15 +170,6 @@ export default function AuthModal() {
             <FcGoogle className="google-icon" />
             <span>Sign in with Google</span>
           </button>
-
-          <div className="demo-credentials-box">
-            <p>
-              💡 Quick test?{" "}
-              <button type="button" className="demo-fill-btn" onClick={fillDemoAccount}>
-                Use demo account
-              </button>
-            </p>
-          </div>
 
           <div className="auth-modal-footer">
             <p>

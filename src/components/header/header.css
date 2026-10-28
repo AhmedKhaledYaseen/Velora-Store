@@ -309,7 +309,7 @@
 }
 
 .user-header-name {
-    color: var(--white-color);
+    color: var(--white-color, #ffffff) !important;
     font-size: 0.88rem;
     font-weight: 600;
     max-width: 100px;
@@ -412,6 +412,10 @@
     transition: all 0.15s ease;
     text-decoration: none;
     width: 100%;
+}
+
+.dropdown-item span {
+    color: inherit;
 }
 
 .dropdown-item svg {

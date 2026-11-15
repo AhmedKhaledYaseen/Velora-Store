@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../components/cartContext/CartContext";
 import { FaTrashAlt } from "react-icons/fa";
 import './cart.css'
@@ -7,6 +8,7 @@ import PageTransition from "../../components/PageTransition";
 function Cart() {
 
   const { cartItems, increaseQuantity, decreaseQuantity, deleteCartItem } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
@@ -54,7 +56,13 @@ function Cart() {
             </div>
 
             <div className="button_div">
-              <button type='submit'>Place Order</button>
+              <button
+                type='button'
+                onClick={() => navigate('/checkout')}
+                disabled={cartItems.length === 0}
+              >
+                Proceed to Checkout
+              </button>
             </div>
           </div>
         </div>

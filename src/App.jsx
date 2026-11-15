@@ -5,6 +5,9 @@ import Home from './pages/home/Home'
 import { Route, Routes, useLocation, Navigate } from 'react-router-dom'
 import ProductDetails from './pages/productDetails/ProductDetails'
 import Cart from './pages/cart/Cart'
+import Checkout from './pages/checkout/Checkout'
+import PaymentSuccess from './pages/payment/PaymentSuccess'
+import PaymentFailed from './pages/payment/PaymentFailed'
 import { Toaster } from 'react-hot-toast'
 import ScrollToTop from './components/ScrollToTop'
 import { AnimatePresence } from 'framer-motion'
@@ -50,6 +53,9 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment/success" element={<PaymentSuccess />} />
+          <Route path="/payment/failed" element={<PaymentFailed />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/search" element={<SearchResults />} />
           <Route path="/product/:id" element={<ProductDetails />} />
